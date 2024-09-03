@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encurtador de Links</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #f8b5d0, #b2dffb);
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="url"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #ff82c6;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #ff69b4;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        .alert {
+        background-color: #fff5f7;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        margin: 0 auto;
+        color: #ff69b4;
+        font-weight: bold;
+            }
+
+        .alert a {
+        color: #ff69b4;
+        text-decoration: none;
+            }
+
+        .alert a:hover {
+        text-decoration: underline;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if linkTxt %}
+            <div class="alert">
+                <strong>Seu link é esse:</strong> {{ linkAcesso }}
+            </div>
+        {% endif %}
+        <h1>Encurtador de Links</h1>
+        <form action="gerar-link" method="post">
+            <div class="input-group">
+                <label for="link">Cole o link aqui:</label>
+                <input type="url" id="link" name="linkUrl" placeholder="https://exemplo.com" required>
+            </div>
+            <button type="submit">Registrar Link</button>
+        </form>
+    </div>
+</body>
+</html>
